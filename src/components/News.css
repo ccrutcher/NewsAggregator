@@ -1,0 +1,11 @@
+.articleDisplayContainer {
+  border: 2px solid yellow;
+  width: 800px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+#img-container {
+  max-height: 100%;
+  max-width: 100%;
+}
