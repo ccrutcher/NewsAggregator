@@ -12,16 +12,16 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getNews();
-  }
-
-  //Get articles title, content, author, etc. from an API request
-  getNews() {
-    this.setState({ articlesArray: [] });
     let url =
       'http://newsapi.org/v2/top-headlines?' +
       'country=us&' +
       'apiKey=26f03b33e12649d497df8c7743274aad';
+    this.getNews(url);
+  }
+
+  //Get articles title, content, author, etc. from an API request
+  getNews(url) {
+    this.setState({ articlesArray: [] });
     let req = new Request(url);
     fetch(req)
       .then((response) => {
@@ -37,6 +37,12 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
+        <div id='search-input'>
+          <form>
+            <h1>Search:</h1>
+            <input type='text' id='search' autocomplete='off' />
+          </form>
+        </div>
         <News news={this.state.articlesArray} />
       </div>
     );
